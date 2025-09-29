@@ -1,9 +1,3 @@
-Got it 👍 Let’s expand your **README.md** so it looks professional and covers everything: overview, algorithm explanation, usage, testing, performance considerations, and contribution guidelines.
-
-Here’s a **ready-to-use expanded README** 👇
-
----
-
 # Boyer-Moore Majority Vote Algorithm
 
 ## 📌 Overview
