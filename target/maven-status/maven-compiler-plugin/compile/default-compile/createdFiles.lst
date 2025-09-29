@@ -1,3 +1,3 @@
-main\java\algorithms\BoyerMooreMajority.class
-main\java\cli\BenchmarkRunner.class
-main\java\metrics\PerformanceTracker.class
+cli\BenchmarkRunner.class
+algorithms\BoyerMooreMajority.class
+metrics\PerformanceTracker.class

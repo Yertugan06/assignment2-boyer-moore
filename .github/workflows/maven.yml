@@ -1,0 +1,40 @@
+# Name of the workflow
+name: Java CI with Maven
+
+# Controls when the workflow will run
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+# A workflow run is made up of one or more jobs
+jobs:
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+        with:
+          # Fetch depth 0 is sometimes required for tools that need full history,
+          # but default is usually fine for a build/test job.
+          fetch-depth: 0
+
+      # Set up JDK 17, matching your pom.xml configuration
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven # Caches the Maven dependencies
+
+      # Run the test goal
+      - name: Build and Test with Maven
+        run: mvn -B test
+
+      # Optional: To skip tests but build the JAR/package (not required for your request but good to know)
+      # - name: Build only
+      #   run: mvn -B package -DskipTests
